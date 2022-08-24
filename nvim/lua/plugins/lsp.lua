@@ -4,7 +4,11 @@ return {
       'neovim/nvim-lspconfig',
       config = require 'config.lspconfig'
     }
-    use 'jose-elias-alvarez/null-ls.nvim'
+    use {
+      'jose-elias-alvarez/null-ls.nvim',
+      requires = { 'nvim-lua/plenary.nvim' },
+      config = require 'config.null-ls'
+    }
     use {
       'hrsh7th/nvim-cmp',
       requires = {
