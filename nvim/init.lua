@@ -1,10 +1,15 @@
-local fn = vim.fn
 local vscode = not not vim.g.vscode
 local not_vscode = function() return not vim.g.vscode end
+local nnoremap = function(key, action)
+  vim.keymap.set('n', key, action, { noremap = true, silent = true })
+end
+local nnoremapfn = function(key, action)
+  vim.keymap.set('n', key, '', { noremap = true, silent = true, callback = action })
+end
 
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({
+local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  packer_bootstrap = vim.fn.system({
     'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
     install_path
   })
@@ -31,6 +36,9 @@ require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip'
   use 'lukas-reineke/lsp-format.nvim'
+
+  use 'mfussenegger/nvim-dap'
+  use "rcarriga/nvim-dap-ui"
 
   use {
     'frankier/neovim-colors-solarized-truecolor-only',
@@ -65,14 +73,6 @@ require('packer').startup(function(use)
     'ibhagwan/fzf-lua',
     requires = { 'kyazdani42/nvim-web-devicons' },
     cond = not_vscode,
-    config = function()
-      local fzf = require('fzf-lua')
-      vim.keymap.set('n', '<c-P>', '', {
-        noremap = true,
-        silent = true,
-        callback = function() fzf.files() end,
-      })
-    end
   }
 
   use { 'jeffkreeftmeijer/vim-numbertoggle', cond = not_vscode }
@@ -80,12 +80,6 @@ require('packer').startup(function(use)
   use {
     'mbbill/undotree',
     cond = not_vscode,
-    config = function()
-      vim.keymap.set('n', '<leader>u', ':UndotreeToggle<CR>', {
-        noremap = true,
-        silent = true,
-      })
-    end
   }
 
   use {
@@ -93,6 +87,10 @@ require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' },
     tag = 'nightly',
   }
+
+  use { 'tpope/vim-fugitive', cond = not_vscode }
+
+  use 'andweeb/presence.nvim'
 
   if packer_bootstrap then
     require('packer').sync()
@@ -105,8 +103,8 @@ vim.opt.textwidth = 80
 vim.opt.incsearch = true
 
 -- temp files
-vim.opt.backupdir = fn.expand('~/.cache/nvim/session')
-vim.opt.directory = fn.expand('~/.cache/nvim/session')
+vim.opt.backupdir = vim.fn.expand('~/.cache/nvim/session')
+vim.opt.directory = vim.fn.expand('~/.cache/nvim/session')
 
 if not vscode then
   vim.opt.mouse = 'a'
@@ -148,14 +146,63 @@ if not vscode then
   vim.opt.undofile = true
   vim.opt.undolevels = 1000
   vim.opt.undoreload = 10000
-  vim.opt.undodir = fn.expand('~/.cache/nvim/undo')
+  vim.opt.undodir = vim.fn.expand('~/.cache/nvim/undo')
+  nnoremap('<leader>u', ':UndotreeToggle<CR>')
 
   -- lualine
   require 'lualine'.setup {}
 
+  -- fzf
+  nnoremapfn('<c-P>', function() require('fzf-lua').files() end)
+
+  -- nvim tree
+  require 'nvim-tree'.setup {}
+  nnoremap('<leader>e', ':NvimTreeFindFileToggle<CR>')
+
+  -- dap
+  nnoremapfn('<F5>', function() require 'dap'.continue() end)
+  nnoremapfn('<F10>', function() require 'dap'.step_over({}) end)
+  nnoremapfn('<F11>', function() require 'dap'.step_into() end)
+  nnoremapfn('<F12>', function() require 'dap'.step_out() end)
+  nnoremapfn('<Leader>b', function() require 'dap'.toggle_breakpoint() end)
+  nnoremapfn('<Leader>dr', function() require 'dap'.repl.open() end)
+  nnoremapfn('<Leader>dl', function() require 'dap'.run_last() end)
+  nnoremapfn('<Leader>dd', function() require 'dapui'.toggle({}) end)
+
+  require 'dapui'.setup {}
+
+  -- nvim-cmp setup
+  vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+  local cmp = require 'cmp'
+  local luasnip = require 'luasnip'
+  cmp.setup {
+    snippet = {
+      expand = function(args)
+        luasnip.lsp_expand(args.body)
+      end,
+    },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    }),
+    sources = {
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' },
+    },
+  }
+
+  local null_ls = require('null-ls')
+  null_ls.setup {
+    on_attach = require 'lsp-format'.on_attach,
+    sources = {
+      null_ls.builtins.formatting.prettier.with {
+        extra_filetypes = { 'ruby' },
+      },
+    },
+  }
+
   -- LSP
   local lsp = require('lspconfig')
-  local null_ls = require('null-ls')
 
   -- Add additional capabilities supported by nvim-cmp
   local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -183,7 +230,7 @@ if not vscode then
   end
 
   lsp.elixirls.setup {
-    cmd = { fn.expand('~/.elixir-ls/language_server.sh') },
+    cmd = { vim.fn.expand('~/.elixir-ls/language_server.sh') },
     on_attach = on_attach_formatting,
     capabilities = capabilities,
   }
@@ -192,6 +239,19 @@ if not vscode then
     on_attach = on_attach,
     capabilities = capabilities,
   }
+
+  require 'flutter-tools'.setup {
+    dev_tools = {
+      auto_open_browser = true
+    },
+    debugger = { enabled = true },
+    lsp = {
+      on_attach = on_attach_formatting,
+      capabilities = capabilities,
+    }
+  }
+  nnoremap('<leader>fr', ':FlutterRun<CR>')
+  nnoremap('<leader>fe', ':FlutterEmulators<CR>')
 
   lsp.solargraph.setup {
     on_attach = on_attach,
@@ -217,51 +277,7 @@ if not vscode then
     }
   }
 
-  -- flutter
-  require 'flutter-tools'.setup {
-    dev_tools = {
-      auto_open_browser = true
-    },
-    lsp = {
-      on_attach = on_attach_formatting,
-      capabilities = capabilities,
-    }
-  }
-  vim.keymap.set('n', '<leader>fr', ':FlutterRun<CR>')
-  vim.keymap.set('n', '<leader>fe', ':FlutterEmulators<CR>')
-
-  null_ls.setup {
-    on_attach = require 'lsp-format'.on_attach,
-    sources = {
-      null_ls.builtins.formatting.prettier.with {
-        extra_filetypes = { 'ruby' },
-      },
-    },
-  }
-
-  -- nvim-cmp setup
-  local cmp = require 'cmp'
-  local luasnip = require 'luasnip'
-  cmp.setup {
-    snippet = {
-      expand = function(args)
-        luasnip.lsp_expand(args.body)
-      end,
-    },
-    mapping = cmp.mapping.preset.insert({
-      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    }),
-    sources = {
-      { name = 'nvim_lsp' },
-      { name = 'luasnip' },
-    },
-  }
-
-  -- nvim tree
-  require 'nvim-tree'.setup {}
-  vim.keymap.set('n', '<leader>e', ':NvimTreeFindFileToggle<CR>', {
-    noremap = true,
-    silent = true,
-  })
+  -- git
+  nnoremap('<Leader>gp', ':G push<CR>')
+  nnoremap('<Leader>gu', ':G pull<CR>')
 end
