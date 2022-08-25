@@ -4,7 +4,7 @@ return function()
   require 'typescript'.setup {
     server = {
       on_attach = l.on_attach,
-      capabilities = l.capabilities,
+      capabilities = l.capabilities(),
     }
   }
 end

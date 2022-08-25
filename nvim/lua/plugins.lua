@@ -7,16 +7,29 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
-require('packer').startup(function(use)
-  local use_not_vscode = require 'utils'.use_not_vscode(use)
+local function env()
+  local name = 'neovim'
+  if vim.g.vscode then
+    name = 'vscode'
+  end
+  return name
+end
 
+require('packer').init {
+  plugin_package = env()
+}
+
+require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   require 'plugins.common'.startup(use)
-  require 'plugins.lsp'.startup(use_not_vscode)
-  require 'plugins.language'.startup(use_not_vscode)
-  require 'plugins.editor'.startup(use_not_vscode)
-  require 'plugins.ui'.startup(use_not_vscode)
+
+  if not vim.g.vscode then
+    require 'plugins.lsp'.startup(use)
+    require 'plugins.language'.startup(use)
+    require 'plugins.editor'.startup(use)
+    require 'plugins.ui'.startup(use)
+  end
 
   if packer_bootstrap then
     require('packer').sync()

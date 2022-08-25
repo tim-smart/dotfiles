@@ -6,10 +6,13 @@ return function()
     dev_tools = {
       auto_open_browser = true
     },
-    debugger = { enabled = true },
+    -- debugger = {
+    --   enabled = true,
+    --   run_via_dap = true
+    -- },
     lsp = {
       on_attach = l.on_attach_formatting,
-      capabilities = l.capabilities,
+      capabilities = l.capabilities(),
     }
   }
 

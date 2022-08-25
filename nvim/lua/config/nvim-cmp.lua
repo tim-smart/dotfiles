@@ -1,7 +1,9 @@
 return function()
   vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+
   local luasnip = require 'luasnip'
   local mapping = require 'cmp'.mapping
+
   require 'cmp'.setup {
     snippet = {
       expand = function(args)

@@ -27,3 +27,6 @@ end)
 
 -- nvim-tree
 nnoremap('<leader>e', ':NvimTreeFindFileToggle<CR>')
+
+-- touble
+nnoremap('<Leader>xx', ':TroubleToggle<CR>')

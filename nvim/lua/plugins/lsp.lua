@@ -2,23 +2,35 @@ return {
   startup = function(use)
     use {
       'neovim/nvim-lspconfig',
-      config = require 'config.lspconfig'
+      requires = { 'lukas-reineke/lsp-format.nvim' },
+      config = require 'config.lspconfig',
     }
+
     use {
       'jose-elias-alvarez/null-ls.nvim',
       requires = { 'nvim-lua/plenary.nvim' },
       config = require 'config.null-ls'
     }
+
     use {
       'hrsh7th/nvim-cmp',
       requires = {
-        'neovim/nvim-lspconfig',
+        'L3MON4D3/LuaSnip',
         'hrsh7th/cmp-nvim-lsp',
         'saadparwaiz1/cmp_luasnip',
-        'L3MON4D3/LuaSnip',
-        'lukas-reineke/lsp-format.nvim',
+        'lukas-reineke/lsp-format.nvim'
       },
       config = require 'config.nvim-cmp'
+    }
+
+    use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      opt = true,
+      cmd = 'TroubleToggle',
+      config = function()
+        require("trouble").setup {}
+      end
     }
   end
 }

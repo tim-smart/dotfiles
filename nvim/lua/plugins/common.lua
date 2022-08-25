@@ -8,6 +8,11 @@ return {
     use 'tpope/vim-repeat'
     use 'tpope/vim-surround'
     use 'jiangmiao/auto-pairs'
-    use 'mattn/emmet-vim'
+
+    use {
+      'mattn/emmet-vim',
+      opt = true,
+      ft = { 'html', 'haml', 'css', 'scss', 'javascriptreact', 'typescriptreact' }
+    }
   end
 }

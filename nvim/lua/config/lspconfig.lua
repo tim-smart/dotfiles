@@ -3,7 +3,7 @@ return function()
   local l = require 'utils.lsp'
   local on_attach = l.on_attach
   local on_attach_formatting = l.on_attach_formatting
-  local capabilities = l.capabilities
+  local capabilities = l.capabilities()
 
   lsp.elixirls.setup {
     cmd = { vim.fn.expand('~/.elixir-ls/language_server.sh') },
