@@ -16,7 +16,7 @@ end
 
 local function is_night()
   local hour = tonumber(vim.fn.strftime("%H"))
-  return hour >= 17 or hour <= 7
+  return hour >= 17 or hour < 7
 end
 
 return {
