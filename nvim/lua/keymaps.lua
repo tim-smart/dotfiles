@@ -1,5 +1,7 @@
 local nnoremap = require 'utils'.nnoremap
 local nnoremapfn = require 'utils'.nnoremapfn
+local noremap = require 'utils'.noremap
+local noremapfn = require 'utils'.noremapfn
 
 -- undo
 nnoremap('<leader>u', ':UndotreeToggle<CR>')
@@ -31,3 +33,17 @@ nnoremap('<leader>e', ':NvimTreeFindFileToggle<CR>')
 
 -- touble
 nnoremap('<Leader>xx', ':TroubleToggle<CR>')
+
+-- luasnip
+noremapfn('i', '<c-j>', function()
+  require 'luasnip'.jump(1)
+end)
+noremapfn('s', '<c-j>', function()
+  require 'luasnip'.jump(1)
+end)
+noremapfn('i', '<c-k>', function()
+  require 'luasnip'.jump(-1)
+end)
+noremapfn('s', '<c-k>', function()
+  require 'luasnip'.jump(-1)
+end)

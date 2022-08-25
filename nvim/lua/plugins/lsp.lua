@@ -23,6 +23,8 @@ return {
       config = require 'config.nvim-cmp'
     }
 
+    use "rafamadriz/friendly-snippets"
+
     use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",

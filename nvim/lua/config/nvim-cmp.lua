@@ -4,6 +4,8 @@ return function()
   local luasnip = require 'luasnip'
   local mapping = require 'cmp'.mapping
 
+  require("luasnip.loaders.from_vscode").lazy_load()
+
   require 'cmp'.setup {
     snippet = {
       expand = function(args)
