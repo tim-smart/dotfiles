@@ -13,7 +13,12 @@ return {
       config = function()
         vim.cmd 'colorscheme solarized'
         vim.opt.termguicolors = true
-        vim.opt.background = 'light'
+
+        if require 'utils'.is_night() then
+          vim.opt.background = 'dark'
+        else
+          vim.opt.background = 'light'
+        end
       end
     }
 

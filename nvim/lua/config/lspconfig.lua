@@ -5,6 +5,13 @@ return function()
   local on_attach_formatting = l.on_attach_formatting
   local capabilities = l.capabilities()
 
+  if vim.fn.executable('flutter') == 0 then
+    lsp.dartls.setup {
+      on_attach = on_attach_formatting,
+      capabilities = capabilities,
+    }
+  end
+
   lsp.elixirls.setup {
     cmd = { vim.fn.expand('~/.elixir-ls/language_server.sh') },
     on_attach = on_attach_formatting,

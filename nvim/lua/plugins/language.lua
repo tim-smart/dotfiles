@@ -5,6 +5,9 @@ return {
       requires = 'nvim-lua/plenary.nvim',
       opt = true,
       ft = { 'dart' },
+      cond = function()
+        return vim.fn.executable('flutter') == 1
+      end,
       config = require 'config.flutter-tools'
     }
     use {
