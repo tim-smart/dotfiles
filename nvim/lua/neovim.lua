@@ -29,6 +29,9 @@ vim.opt.ruler = true
 vim.opt.list = true
 vim.opt.listchars = 'tab:>-,trail:·,eol:¶'
 
+-- diff
+vim.opt.diffopt:append('vertical')
+
 -- indent guides
 vim.g.indent_guides_enable_on_vim_startup = true
 vim.g.indent_guides_auto_colors = true
@@ -38,3 +41,8 @@ vim.opt.undofile = true
 vim.opt.undolevels = 1000
 vim.opt.undoreload = 10000
 vim.opt.undodir = vim.fn.expand('~/.cache/nvim/undo')
+
+-- grep
+if vim.fn.executable("rg") then
+  vim.opt.grepprg = 'rg\\ --vimgrep'
+end

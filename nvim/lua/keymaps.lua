@@ -10,6 +10,7 @@ nnoremap('<Leader>gu', ':G pull<CR>')
 
 -- fzf
 nnoremap('<c-P>', ':FzfLua files<CR>')
+nnoremap('<c-G>', ':FzfLua grep<CR>')
 
 -- dap
 nnoremapfn('<F5>', function() require 'dap'.continue() end)
