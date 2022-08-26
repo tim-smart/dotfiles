@@ -16,9 +16,11 @@ return function()
       ['<C-d>'] = mapping.scroll_docs(-4),
       ['<C-f>'] = mapping.scroll_docs(4),
     }),
-    sources = {
+    sources = require 'cmp'.config.sources({
       { name = 'nvim_lsp' },
       { name = 'luasnip' },
-    },
+    }, {
+      { name = 'buffer' }
+    }),
   }
 end
