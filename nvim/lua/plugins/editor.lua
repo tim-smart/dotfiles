@@ -7,7 +7,11 @@ return {
     }
 
     use 'tpope/vim-sleuth'
-    use { 'tpope/vim-fugitive', opt = true, cmd = 'G' }
+    use {
+      'tpope/vim-fugitive',
+      opt = true,
+      cmd = { 'G', 'Gw', 'Gdiff' }
+    }
     use 'andweeb/presence.nvim'
 
     use {
