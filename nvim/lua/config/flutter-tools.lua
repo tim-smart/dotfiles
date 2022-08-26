@@ -16,6 +16,6 @@ return function()
     }
   }
 
-  u.nnoremap('<leader>fr', ':FlutterRun<CR>')
-  u.nnoremap('<leader>fe', ':FlutterEmulators<CR>')
+  u.noremap('n', '<leader>fr', ':FlutterRun<CR>')
+  u.noremap('n', '<leader>fe', ':FlutterEmulators<CR>')
 end

@@ -23,5 +23,7 @@ return {
         require('gitsigns').setup()
       end
     }
+
+    use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
   end
 }

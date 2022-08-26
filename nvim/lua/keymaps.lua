@@ -1,49 +1,46 @@
-local nnoremap = require 'utils'.nnoremap
-local nnoremapfn = require 'utils'.nnoremapfn
 local noremap = require 'utils'.noremap
-local noremapfn = require 'utils'.noremapfn
 
 -- undo
-nnoremap('<leader>u', ':UndotreeToggle<CR>')
+noremap('n', '<leader>u', ':UndotreeToggle<CR>')
 
 -- git
-nnoremap('<Leader>gp', ':G push<CR>')
-nnoremap('<Leader>gu', ':G pull<CR>')
+noremap('n', '<Leader>gp', ':G push<CR>')
+noremap('n', '<Leader>gu', ':G pull<CR>')
 
 -- fzf
-nnoremap('<c-P>', ':FzfLua files<CR>')
-nnoremap('<c-G>', ':FzfLua grep<CR>')
+noremap('n', '<c-P>', ':FzfLua files<CR>')
+noremap('n', '<c-G>', ':FzfLua grep<CR>')
 
 -- dap
-nnoremapfn('<F5>', function() require 'dap'.continue() end)
-nnoremapfn('<F10>', function() require 'dap'.step_over({}) end)
-nnoremapfn('<F11>', function() require 'dap'.step_into() end)
-nnoremapfn('<F12>', function() require 'dap'.step_out() end)
-nnoremapfn('<Leader>b', function() require 'dap'.toggle_breakpoint() end)
-nnoremapfn('<Leader>dr', function() require 'dap'.repl.open() end)
-nnoremapfn('<Leader>dl', function() require 'dap'.run_last() end)
+noremap('n', '<F5>', function() require 'dap'.continue() end)
+noremap('n', '<F10>', function() require 'dap'.step_over({}) end)
+noremap('n', '<F11>', function() require 'dap'.step_into() end)
+noremap('n', '<F12>', function() require 'dap'.step_out() end)
+noremap('n', '<Leader>b', function() require 'dap'.toggle_breakpoint() end)
+noremap('n', '<Leader>dr', function() require 'dap'.repl.open() end)
+noremap('n', '<Leader>dl', function() require 'dap'.run_last() end)
 
 -- dap-ui
-nnoremapfn('<Leader>dd', function()
+noremap('n', '<Leader>dd', function()
   require 'dapui'.toggle({})
 end)
 
 -- nvim-tree
-nnoremap('<leader>e', ':NvimTreeFindFileToggle<CR>')
+noremap('n', '<leader>e', ':NvimTreeFindFileToggle<CR>')
 
 -- touble
-nnoremap('<Leader>xx', ':TroubleToggle<CR>')
+noremap('n', '<Leader>xx', ':TroubleToggle<CR>')
 
 -- luasnip
-noremapfn('i', '<c-j>', function()
+noremap('i', '<c-j>', function()
   require 'luasnip'.jump(1)
 end)
-noremapfn('s', '<c-j>', function()
+noremap('s', '<c-j>', function()
   require 'luasnip'.jump(1)
 end)
-noremapfn('i', '<c-k>', function()
+noremap('i', '<c-k>', function()
   require 'luasnip'.jump(-1)
 end)
-noremapfn('s', '<c-k>', function()
+noremap('s', '<c-k>', function()
   require 'luasnip'.jump(-1)
 end)
