@@ -1,9 +1,13 @@
 local noremap = require 'utils'.noremap
 
+-- write
+noremap('n', '<Leader>w', ':w<CR>')
+
 -- undo
 noremap('n', '<leader>u', ':UndotreeToggle<CR>')
 
 -- git
+noremap('n', '<Leader>gg', ':G<CR>')
 noremap('n', '<Leader>gp', ':G push<CR>')
 noremap('n', '<Leader>gu', ':G pull<CR>')
 

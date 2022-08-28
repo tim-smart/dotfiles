@@ -4,7 +4,7 @@ return function()
 
   require 'flutter-tools'.setup {
     dev_tools = {
-      auto_open_browser = true
+      -- auto_open_browser = true
     },
     -- debugger = {
     --   enabled = true,
