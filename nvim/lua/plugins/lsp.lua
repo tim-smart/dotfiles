@@ -1,6 +1,28 @@
 return {
   startup = function(use)
     use {
+      "williamboman/mason.nvim",
+      config = function()
+        require("mason").setup()
+      end
+    }
+
+    use {
+      "williamboman/mason-lspconfig.nvim",
+      config = function()
+        require('mason-lspconfig').setup {
+          ensure_installed = {
+            'elixirls',
+            'emmet_ls',
+            'jsonls',
+            'sumneko_lua',
+            'tsserver',
+          }
+        }
+      end
+    }
+
+    use {
       'neovim/nvim-lspconfig',
       requires = {
         'b0o/schemastore.nvim',
