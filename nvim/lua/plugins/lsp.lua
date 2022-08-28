@@ -2,7 +2,10 @@ return {
   startup = function(use)
     use {
       'neovim/nvim-lspconfig',
-      requires = { 'lukas-reineke/lsp-format.nvim' },
+      requires = {
+        'b0o/schemastore.nvim',
+        'lukas-reineke/lsp-format.nvim'
+      },
       config = require 'config.lspconfig',
     }
 
