@@ -1,7 +1,19 @@
 return {
   startup = function(use)
-    use 'nathanaelkane/vim-indent-guides'
+    use {
+      'lukas-reineke/indent-blankline.nvim',
+      config = function()
+        require('indent_blankline').setup {
+          show_end_of_line = true,
+          char_highlight_list = {
+            "IndentBlanklineIndent1",
+          },
+        }
+      end
+    }
+
     use 'jeffkreeftmeijer/vim-numbertoggle'
+
     use {
       'mbbill/undotree',
       opt = true,
@@ -16,8 +28,10 @@ return {
 
         if require 'utils'.is_night() then
           vim.opt.background = 'dark'
+          vim.cmd [[highlight IndentBlanklineIndent1 guifg=#005062 gui=nocombine]]
         else
           vim.opt.background = 'light'
+          vim.cmd [[highlight IndentBlanklineIndent1 guifg=#C2BCAB gui=nocombine]]
         end
       end
     }
