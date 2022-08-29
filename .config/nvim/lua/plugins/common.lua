@@ -3,11 +3,17 @@ return {
     use 'tpope/vim-unimpaired'
     use 'vim-scripts/matchit.zip'
     use 'tpope/vim-abolish'
-    use 'tpope/vim-commentary'
     use 'tpope/vim-endwise'
     use 'tpope/vim-repeat'
     use 'tpope/vim-surround'
     use 'jiangmiao/auto-pairs'
+
+    use {
+      'numToStr/Comment.nvim',
+      config = function()
+        require('Comment').setup()
+      end
+    }
 
     use {
       'mattn/emmet-vim',
