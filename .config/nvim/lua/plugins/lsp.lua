@@ -23,6 +23,15 @@ return {
     }
 
     use {
+      'tamago324/nlsp-settings.nvim',
+      config = function()
+        require 'nlspsettings'.setup {
+          append_default_schemas = true
+        }
+      end
+    }
+
+    use {
       'neovim/nvim-lspconfig',
       requires = {
         'b0o/schemastore.nvim',
