@@ -21,10 +21,6 @@ vim.opt.modeline = true
 vim.opt.showcmd = true
 vim.opt.laststatus = 2
 
--- scroll
-vim.opt.scrolloff = 3
-vim.opt.ruler = true
-
 -- For showing whitespace
 vim.opt.list = true
 vim.opt.listchars = 'tab:→ ,trail:·,eol:↩'

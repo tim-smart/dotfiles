@@ -5,9 +5,6 @@ return {
       config = function()
         require('indent_blankline').setup {
           show_end_of_line = true,
-          char_highlight_list = {
-            "IndentBlanklineIndent1",
-          },
         }
       end
     }
@@ -28,10 +25,12 @@ return {
 
         if require 'utils'.is_night() then
           vim.opt.background = 'dark'
-          vim.cmd [[highlight IndentBlanklineIndent1 guifg=#005062 gui=nocombine]]
+          vim.cmd [[highlight NonText guifg=#005062 gui=nocombine]]
+          vim.cmd [[highlight SpecialKey guifg=#005062 gui=nocombine]]
         else
           vim.opt.background = 'light'
-          vim.cmd [[highlight IndentBlanklineIndent1 guifg=#C2BCAB gui=nocombine]]
+          vim.cmd [[highlight NonText guifg=#C2BCAB gui=nocombine]]
+          vim.cmd [[highlight SpecialKey guifg=#C2BCAB gui=nocombine]]
         end
       end
     }
