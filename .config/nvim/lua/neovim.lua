@@ -27,7 +27,7 @@ vim.opt.ruler = true
 
 -- For showing whitespace
 vim.opt.list = true
-vim.opt.listchars = 'tab:>-,trail:·,eol:¶'
+vim.opt.listchars = 'tab:→ ,trail:·,eol:↩'
 
 -- diff
 vim.opt.diffopt:append('vertical')

@@ -13,7 +13,6 @@ return function()
   end
 
   lsp.elixirls.setup {
-    cmd = { vim.fn.expand('~/.elixir-ls/language_server.sh') },
     on_attach = on_attach_formatting,
     capabilities = capabilities,
   }
@@ -24,7 +23,7 @@ return function()
   }
 
   lsp.jsonls.setup {
-    on_attach = on_attach,
+    on_attach = on_attach_formatting,
     capabilities = capabilities,
     settings = {
       json = {

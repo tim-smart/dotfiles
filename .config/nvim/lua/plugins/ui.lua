@@ -21,9 +21,9 @@ return {
     }
 
     use {
-      'frankier/neovim-colors-solarized-truecolor-only',
+      'lifepillar/vim-solarized8',
       config = function()
-        vim.cmd 'colorscheme solarized'
+        vim.cmd 'colorscheme solarized8'
         vim.opt.termguicolors = true
 
         if require 'utils'.is_night() then
