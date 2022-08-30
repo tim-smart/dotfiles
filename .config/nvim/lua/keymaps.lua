@@ -48,3 +48,6 @@ end)
 noremap('s', '<c-k>', function()
   require 'luasnip'.jump(-1)
 end)
+
+-- terminal
+noremap('n', '<Leader>t', ':belowright split | resize 20 | terminal<CR>')
