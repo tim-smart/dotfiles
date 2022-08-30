@@ -35,7 +35,7 @@ return {
       'neovim/nvim-lspconfig',
       requires = {
         'b0o/schemastore.nvim',
-        'lukas-reineke/lsp-format.nvim'
+        'lukas-reineke/lsp-format.nvim',
       },
       config = require 'config.lspconfig',
     }

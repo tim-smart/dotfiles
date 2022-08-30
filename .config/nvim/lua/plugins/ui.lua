@@ -12,12 +12,6 @@ return {
     use 'jeffkreeftmeijer/vim-numbertoggle'
 
     use {
-      'mbbill/undotree',
-      opt = true,
-      cmd = "UndotreeToggle"
-    }
-
-    use {
       'lifepillar/vim-solarized8',
       config = function()
         vim.cmd 'colorscheme solarized8'

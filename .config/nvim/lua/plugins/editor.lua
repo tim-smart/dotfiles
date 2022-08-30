@@ -28,6 +28,15 @@ return {
       end
     }
 
-    use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
+    use { 'stefandtw/quickfix-reflector.vim', ft = 'qf' }
+
+    use {
+      'mbbill/undotree',
+      opt = true,
+      cmd = "UndotreeToggle",
+      config = function()
+        vim.g.undotree_SetFocusWhenToggle = true
+      end
+    }
   end
 }

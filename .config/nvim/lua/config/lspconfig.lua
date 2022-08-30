@@ -15,6 +15,7 @@ return function()
   lsp.elixirls.setup {
     on_attach = on_attach_formatting,
     capabilities = capabilities,
+    cmd = { 'elixir-ls' }
   }
 
   lsp.emmet_ls.setup {

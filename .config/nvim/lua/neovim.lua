@@ -40,5 +40,5 @@ vim.opt.undodir = vim.fn.expand('~/.cache/nvim/undo')
 
 -- grep
 if vim.fn.executable("rg") then
-  vim.opt.grepprg = 'rg --vimgrep'
+  vim.opt.grepprg = 'rg --vimgrep --hidden'
 end

@@ -51,3 +51,12 @@ end)
 
 -- terminal
 noremap('n', '<Leader>t', ':belowright split | resize 20 | terminal<CR>')
+
+-- open quickfix on grep
+vim.cmd [[
+augroup keymaps
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* cwindow
+    autocmd QuickFixCmdPost l*    lwindow
+augroup END
+]]
