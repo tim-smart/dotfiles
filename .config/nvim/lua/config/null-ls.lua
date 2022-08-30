@@ -7,6 +7,7 @@ return function()
       null_ls.builtins.formatting.prettier.with {
         extra_filetypes = { 'ruby' },
       },
+      null_ls.builtins.formatting.sql_formatter,
     },
   }
 end
