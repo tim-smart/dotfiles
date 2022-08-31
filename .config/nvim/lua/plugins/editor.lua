@@ -38,5 +38,10 @@ return {
         vim.g.undotree_SetFocusWhenToggle = true
       end
     }
+
+    use {
+      'vim-test/vim-test',
+      cmd = { 'TestNearest', 'TestFile' },
+    }
   end
 }
