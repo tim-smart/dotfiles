@@ -42,6 +42,14 @@ return {
     use {
       'vim-test/vim-test',
       cmd = { 'TestNearest', 'TestFile' },
+      config = function()
+        vim.g['test#strategy'] = 'dispatch'
+      end
+    }
+
+    use {
+      'tpope/vim-dispatch',
+      cmd = { 'Dispatch', 'Dispatch!' },
     }
   end
 }
