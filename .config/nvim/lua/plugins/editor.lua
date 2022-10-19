@@ -1,6 +1,7 @@
 return {
   startup = function(use)
     use 'mfussenegger/nvim-dap'
+
     use {
       'rcarriga/nvim-dap-ui',
       config = function() require 'dapui'.setup {} end
@@ -10,7 +11,7 @@ return {
     use {
       'tpope/vim-fugitive',
       opt = true,
-      cmd = { 'G', 'Gw', 'Gdiff' }
+      cmd = { 'G', 'Gr', 'Gw', 'Gdiff' }
     }
     use 'andweeb/presence.nvim'
 

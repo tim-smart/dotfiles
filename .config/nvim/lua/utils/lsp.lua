@@ -1,7 +1,6 @@
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = function()
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  return require('cmp_nvim_lsp').update_capabilities(capabilities)
+  return require('cmp_nvim_lsp').default_capabilities()
 end
 
 local on_attach = function(_, bufnr)

@@ -3,7 +3,6 @@ return {
     use {
       'akinsho/flutter-tools.nvim',
       requires = 'nvim-lua/plenary.nvim',
-      opt = true,
       ft = { 'dart' },
       cond = function()
         return vim.fn.executable('flutter') == 1
@@ -12,14 +11,20 @@ return {
     }
     use {
       'jose-elias-alvarez/typescript.nvim',
-      opt = true,
       ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
       config = require 'config.typescript'
     }
     use {
       'elixir-editors/vim-elixir',
-      opt = true,
       ft = { 'elixir' }
+    }
+    use {
+      'solarnz/thrift.vim',
+      ft = { 'thrift' }
+    }
+    use {
+      'tpope/vim-rails',
+      ft = { 'ruby' }
     }
   end
 }
