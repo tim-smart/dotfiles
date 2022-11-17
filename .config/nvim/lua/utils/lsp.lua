@@ -3,7 +3,7 @@ local capabilities = function()
   return require('cmp_nvim_lsp').default_capabilities()
 end
 
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -16,7 +16,6 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
 
   vim.cmd([[command! -nargs=0 OrganizeImports lua require('utils.lsp').organize_imports()]])
 end

@@ -18,13 +18,18 @@ return function()
     cmd = { 'elixir-ls' },
   }
 
+  lsp.graphql.setup {
+    on_attach = on_attach_formatting,
+    capabilities = capabilities,
+  }
+
   lsp.emmet_ls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }
 
   lsp.jsonls.setup {
-    on_attach = on_attach_formatting,
+    on_attach = on_attach,
     capabilities = capabilities,
     settings = {
       json = {
@@ -50,5 +55,10 @@ return function()
         workspace = { library = vim.api.nvim_get_runtime_file("", true), },
       },
     },
+  }
+
+  lsp.tailwindcss.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
   }
 end
