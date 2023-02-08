@@ -18,6 +18,9 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 
   vim.cmd([[command! -nargs=0 OrganizeImports lua require('utils.lsp').organize_imports()]])
+
+  -- disable highlighting
+  client.server_capabilities.semanticTokensProvider = nil
 end
 
 local on_attach_formatting = function(client, b)
@@ -51,9 +54,9 @@ local organize_imports = function()
 end
 
 return {
-  on_attach = on_attach,
-  on_attach_formatting = on_attach_formatting,
-  capabilities = capabilities,
-  document_code_action = document_code_action,
-  organize_imports = organize_imports
+    on_attach = on_attach,
+    on_attach_formatting = on_attach_formatting,
+    capabilities = capabilities,
+    document_code_action = document_code_action,
+    organize_imports = organize_imports
 }
