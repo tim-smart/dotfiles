@@ -26,5 +26,9 @@ return {
       'tpope/vim-rails',
       ft = { 'ruby' }
     }
+    use {
+      'derekwyatt/vim-scala',
+      ft = { 'scala' }
+    }
   end
 }

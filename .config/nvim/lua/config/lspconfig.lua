@@ -39,6 +39,10 @@ return function()
     },
   }
 
+  lsp.metals.setup {
+    on_attach = on_attach_formatting,
+    capabilities = capabilities,
+  }
 
   lsp.solargraph.setup {
     on_attach = on_attach,
