@@ -52,5 +52,7 @@ return {
       'tpope/vim-dispatch',
       cmd = { 'Dispatch', 'Dispatch!' },
     }
+
+    use { 'github/copilot.vim' }
   end
 }
