@@ -1,13 +1,6 @@
 return {
     startup = function(use)
         use {
-            "williamboman/mason.nvim",
-            config = function()
-                require("mason").setup()
-            end
-        }
-
-        use {
             'tamago324/nlsp-settings.nvim',
             config = function()
                 require 'nlspsettings'.setup {
@@ -26,19 +19,9 @@ return {
         }
 
         use {
-            "williamboman/mason-lspconfig.nvim",
-            requires = {
-                "williamboman/mason.nvim",
-                "neovim/nvim-lspconfig",
-            },
+            "williamboman/mason.nvim",
             config = function()
-                require('mason-lspconfig').setup {
-                    ensure_installed = {
-                        'emmet_ls',
-                        'jsonls',
-                        'tsserver',
-                    }
-                }
+                require("mason").setup()
             end
         }
 

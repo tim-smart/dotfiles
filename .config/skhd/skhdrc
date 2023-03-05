@@ -10,7 +10,16 @@ shift + alt - h : yabai -m window --swap west
 shift + alt - l : yabai -m window --swap east
 shift + alt - k : yabai -m window --swap north
 shift + alt - j : yabai -m window --swap south
-# # increase window size
+
+# send window to monitor
+alt + shift - u : yabai -m window --display prev; yabai -m display --focus prev
+alt + shift - i : yabai -m window --display next; yabai -m display --focus next
+
+# window to space
+alt + shift - p : yabai -m window --space prev; yabai -m space --focus prev
+alt + shift - n : yabai -m window --space next; yabai -m space --focus next
+
+# increase window size
 cmd + ctrl - h : yabai -m window --resize left:-50:0
 cmd + ctrl - l : yabai -m window --resize right:50:0
 cmd + ctrl - k : yabai -m window --resize top:0:-50
@@ -37,10 +46,6 @@ alt - t : yabai -m window --toggle float
 # open Alacritty
 alt - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
 
-# send window to monitor
-alt + shift - u : yabai -m window --display prev; yabai -m display --focus prev
-alt + shift - i : yabai -m window --display next; yabai -m display --focus next
-
 # focus monitor
 ctrl + alt - h  : yabai -m display --focus prev
 ctrl + alt - l  : yabai -m display --focus next
@@ -59,20 +64,19 @@ ctrl + alt - l  : yabai -m display --focus next
 # shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
 #
 # # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-# shift + cmd - n : yabai -m space --create && \
-#                   index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
-#                   yabai -m window --space "${index}" && \
-#                   yabai -m space --focus "${index}"
-#
+shift + cmd - n : yabai -m space --create && \
+                  index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+                  yabai -m window --space "${index}" && \
+                  yabai -m space --focus "${index}"
+
+# destroy space
+shift + cmd - d : yabai -m space --destroy
+
 # # fast focus desktop
 # cmd + alt - x : yabai -m space --focus recent
 # cmd + alt - 1 : yabai -m space --focus 1
 #
 # ctrl + alt - 3  : yabai -m display --focus 3
-#
-# # send window to monitor and follow focus
-# ctrl + cmd - c  : yabai -m window --display next; yabai -m display --focus next
-# ctrl + cmd - 1  : yabai -m window --display 1; yabai -m display --focus 1
 #
 # # move floating window
 # shift + ctrl - a : yabai -m window --move rel:-20:0

@@ -29,7 +29,7 @@ return {
       end
     }
 
-    use { 'stefandtw/quickfix-reflector.vim', ft = 'qf' }
+    use { 'stefandtw/quickfix-reflector.vim' }
 
     use {
       'mbbill/undotree',
