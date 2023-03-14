@@ -50,20 +50,7 @@ alt - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
 ctrl + alt - h  : yabai -m display --focus prev
 ctrl + alt - l  : yabai -m display --focus next
 
-# # toggle sticky(+float), topmost, picture-in-picture
-# # alt - p : yabai -m window --toggle sticky --toggle topmost --toggle pip
-
-# # move managed window
-# shift + cmd - h : yabai -m window --warp east
-#
-#
-# # make floating window fill screen
-# shift + alt - up     : yabai -m window --grid 1:1:0:0:1:1
-#
-# # make floating window fill left-half of screen
-# shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
-#
-# # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
+# create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
 shift + cmd - n : yabai -m space --create && \
                   index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
                   yabai -m window --space "${index}" && \
@@ -71,6 +58,17 @@ shift + cmd - n : yabai -m space --create && \
 
 # destroy space
 shift + cmd - d : yabai -m space --destroy
+
+# Add left padding
+cmd + ctrl - 0x29 : yabai -m space --padding abs:5:5:500:5
+cmd + shift - 0x29 : yabai -m space --padding abs:5:5:5:5
+
+# toggle layout
+cmd + ctrl - space : yabai -m space --layout float
+cmd + shift - space : yabai -m space --layout bsp
+
+# show desktop
+cmd + ctrl - d : yabai -m space --toggle show-desktop
 
 # # fast focus desktop
 # cmd + alt - x : yabai -m space --focus recent
@@ -89,3 +87,16 @@ shift + cmd - d : yabai -m space --destroy
 #
 # # set insertion point in focused container
 # ctrl + alt - h : yabai -m window --insert west
+# # toggle sticky(+float), topmost, picture-in-picture
+# # alt - p : yabai -m window --toggle sticky --toggle topmost --toggle pip
+
+# # move managed window
+# shift + cmd - h : yabai -m window --warp east
+#
+#
+# # make floating window fill screen
+# shift + alt - up     : yabai -m window --grid 1:1:0:0:1:1
+#
+# # make floating window fill left-half of screen
+# shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
+#

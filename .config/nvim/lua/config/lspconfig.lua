@@ -60,6 +60,10 @@ return function()
             },
         },
     }
+    lsp.rust_analyzer.setup {
+        on_attach = on_attach_formatting,
+        capabilities = capabilities,
+    }
 
     lsp.tailwindcss.setup {
         on_attach = on_attach,

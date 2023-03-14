@@ -19,7 +19,10 @@ return {
       'ibhagwan/fzf-lua',
       requires = { 'kyazdani42/nvim-web-devicons' },
       opt = true,
-      cmd = 'FzfLua'
+      cmd = 'FzfLua',
+      config = function()
+        vim.cmd("FzfLua register_ui_select")
+      end
     }
 
     use {
