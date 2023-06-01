@@ -28,6 +28,18 @@ return function()
         capabilities = capabilities,
     }
 
+    lsp.eslint.setup {
+        on_attach = function(client, bufnr)
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                buffer = bufnr,
+                command = "EslintFixAll",
+            })
+
+            on_attach(client, bufnr)
+        end,
+        capabilities = capabilities,
+    }
+
     lsp.jsonls.setup {
         on_attach = on_attach,
         capabilities = capabilities,
@@ -63,10 +75,28 @@ return function()
     lsp.rust_analyzer.setup {
         on_attach = on_attach_formatting,
         capabilities = capabilities,
+        settings = {
+            ["rust-analyzer"] = {
+                cargo = {
+                    loadOutDirsFromCheck = true,
+                },
+                procMacro = { enable = true },
+            }
+        }
     }
 
     lsp.tailwindcss.setup {
         on_attach = on_attach,
         capabilities = capabilities,
+    }
+
+    lsp.tsserver.setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        init_options = {
+            preferences = {
+                importModuleSpecifierPreference = 'non-relative',
+            },
+        },
     }
 end
