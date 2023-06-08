@@ -5,7 +5,7 @@ return function()
   local mapping = require 'cmp'.mapping
 
   require("luasnip.loaders.from_vscode").lazy_load {
-    paths = { "~/Library/Application Support/Code - Insiders/User/snippets" }
+    paths = { "~/Library/Application Support/Code/User/snippets" }
   }
 
   require 'cmp'.setup {
