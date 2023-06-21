@@ -59,5 +59,20 @@ augroup END
 ]]
 
 -- tests
-noremap('n', '<Leader>tn', ':TestNearest<CR>')
-noremap('n', '<Leader>tf', ':TestFile<CR>')
+noremap('n', '<Leader>ts', function()
+  require("neotest").summary.toggle()
+end)
+noremap('n', '<Leader>to', function()
+  require("neotest").output.open({ enter = true })
+end)
+noremap('n', '<Leader>tn', function()
+  require("neotest").run.run()
+end)
+noremap('n', '<Leader>tf', function()
+  require("neotest").run.run(vim.fn.expand("%"))
+end)
+
+-- diagnostics float
+noremap('n', '<Leader>i', function()
+  vim.diagnostic.open_float()
+end)

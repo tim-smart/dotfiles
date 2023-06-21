@@ -1,5 +1,20 @@
 return {
   startup = function(use)
+    use {
+      'nvim-treesitter/nvim-treesitter',
+      lazy = false,
+      build = ':TSUpdate',
+      config = function()
+        require("nvim-treesitter.configs").setup {
+          ensure_installed = {
+            "javascript",
+            "typescript"
+          },
+          auto_install = true,
+        }
+      end
+    }
+
     use 'mfussenegger/nvim-dap'
 
     use {
@@ -44,10 +59,22 @@ return {
     }
 
     use {
-      'vim-test/vim-test',
-      cmd = { 'TestNearest', 'TestFile' },
+      "nvim-neotest/neotest",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "nvim-treesitter/nvim-treesitter",
+        "antoinemadec/FixCursorHold.nvim",
+        { 'tim-smart/neotest-vitest', branch = "search-paths" }
+      },
       config = function()
-        vim.g['test#strategy'] = 'dispatch'
+        require('neotest').setup({
+          adapters = {
+            require('neotest-vitest')
+          },
+          -- diagnostic = {
+          --   enabled = false,
+          -- }
+        })
       end
     }
 

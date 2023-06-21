@@ -54,9 +54,9 @@ local organize_imports = function()
 end
 
 return {
-    on_attach = on_attach,
-    on_attach_formatting = on_attach_formatting,
-    capabilities = capabilities,
-    document_code_action = document_code_action,
-    organize_imports = organize_imports
+  on_attach = on_attach,
+  on_attach_formatting = on_attach_formatting,
+  capabilities = capabilities,
+  document_code_action = document_code_action,
+  organize_imports = organize_imports
 }
