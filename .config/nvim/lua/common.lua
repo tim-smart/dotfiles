@@ -9,3 +9,6 @@ vim.opt.formatoptions = 'jcroql'
 -- scroll
 vim.opt.scrolloff = 3
 vim.opt.ruler = true
+
+-- leader
+vim.g.mapleader = " "

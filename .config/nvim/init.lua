@@ -1,4 +1,4 @@
 require('common')
-require('plugins')
+require('load-plugins')
 require('neovim')
 require('keymaps')

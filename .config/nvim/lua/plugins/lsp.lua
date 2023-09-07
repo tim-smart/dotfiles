@@ -1,58 +1,56 @@
 return {
-    startup = function(use)
-        use {
-            'tamago324/nlsp-settings.nvim',
-            config = function()
-                require 'nlspsettings'.setup {
-                    append_default_schemas = true
-                }
-            end
-        }
+    {
+        'tamago324/nlsp-settings.nvim',
+        config = function()
+            require 'nlspsettings'.setup {
+                append_default_schemas = true
+            }
+        end
+    },
 
-        use {
-            'neovim/nvim-lspconfig',
-            requires = {
-                'b0o/schemastore.nvim',
-                'lukas-reineke/lsp-format.nvim',
-            },
-            config = require 'config.lspconfig',
-        }
+    {
+        'neovim/nvim-lspconfig',
+        dependencies = {
+            'b0o/schemastore.nvim',
+            'lukas-reineke/lsp-format.nvim',
+        },
+        config = require 'config.lspconfig',
+    },
 
-        use {
-            "williamboman/mason.nvim",
-            config = function()
-                require("mason").setup()
-            end
-        }
+    {
+        "williamboman/mason.nvim",
+        config = function()
+            require("mason").setup()
+        end
+    },
 
-        use {
-            'jose-elias-alvarez/null-ls.nvim',
-            requires = { 'nvim-lua/plenary.nvim' },
-            config = require 'config.null-ls'
-        }
+    {
+        'jose-elias-alvarez/null-ls.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        config = require 'config.null-ls'
+    },
 
-        use {
-            'hrsh7th/nvim-cmp',
-            requires = {
-                'L3MON4D3/LuaSnip',
-                'hrsh7th/cmp-nvim-lsp',
-                'hrsh7th/cmp-buffer',
-                'saadparwaiz1/cmp_luasnip',
-                'lukas-reineke/lsp-format.nvim'
-            },
-            config = require 'config.nvim-cmp'
-        }
+    {
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            'L3MON4D3/LuaSnip',
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-buffer',
+            'saadparwaiz1/cmp_luasnip',
+            'lukas-reineke/lsp-format.nvim'
+        },
+        config = require 'config.nvim-cmp'
+    },
 
-        use "rafamadriz/friendly-snippets"
+    "rafamadriz/friendly-snippets",
 
-        use {
-            "folke/trouble.nvim",
-            requires = "kyazdani42/nvim-web-devicons",
-            opt = true,
-            cmd = 'TroubleToggle',
-            config = function()
-                require("trouble").setup {}
-            end
-        }
-    end
+    {
+        "folke/trouble.nvim",
+        dependencies = "kyazdani42/nvim-web-devicons",
+        lazy = true,
+        cmd = 'TroubleToggle',
+        config = function()
+            require("trouble").setup {}
+        end
+    }
 }
