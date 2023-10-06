@@ -1,19 +1,4 @@
 return {
-  {
-    'nvim-treesitter/nvim-treesitter',
-    lazy = false,
-    build = ':TSUpdate',
-    config = function()
-      require("nvim-treesitter.configs").setup {
-        ensure_installed = {
-          "javascript",
-          "typescript"
-        },
-        auto_install = true,
-      }
-    end
-  },
-
   'mfussenegger/nvim-dap',
 
   {
@@ -45,8 +30,6 @@ return {
       require('gitsigns').setup({})
     end
   },
-
-  -- { 'stefandtw/quickfix-reflector.vim' }
 
   {
     'mbbill/undotree',

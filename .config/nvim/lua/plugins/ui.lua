@@ -16,14 +16,15 @@ return {
       vim.cmd 'colorscheme solarized8'
       vim.opt.termguicolors = true
 
+      -- dark mode
       if require 'utils'.is_night() then
         vim.opt.background = 'dark'
-        vim.cmd [[highlight NonText guifg=#005062 gui=nocombine]]
-        vim.cmd [[highlight SpecialKey guifg=#005062 gui=nocombine]]
+        vim.api.nvim_set_hl(0, 'NonText', { fg = "#005062" })
+        vim.api.nvim_set_hl(0, 'SpecialKey', { fg = "#005062" })
       else
         vim.opt.background = 'light'
-        vim.cmd [[highlight NonText guifg=#C2BCAB gui=nocombine]]
-        vim.cmd [[highlight SpecialKey guifg=#C2BCAB gui=nocombine]]
+        vim.api.nvim_set_hl(0, 'NonText', { fg = "#C2BCAB" })
+        vim.api.nvim_set_hl(0, 'SpecialKey', { fg = "#C2BCAB" })
       end
     end
   },
