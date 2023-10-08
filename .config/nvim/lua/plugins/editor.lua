@@ -40,26 +40,6 @@ return {
     end
   },
 
-  {
-    "nvim-neotest/neotest",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "antoinemadec/FixCursorHold.nvim",
-      { 'tim-smart/neotest-vitest', branch = "search-paths" }
-    },
-    config = function()
-      require('neotest').setup({
-        adapters = {
-          require('neotest-vitest')
-        },
-        -- diagnostic = {
-        --   enabled = false,
-        -- }
-      })
-    end
-  },
-
   { 'tpope/vim-dispatch' },
 
   { 'github/copilot.vim' }

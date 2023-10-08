@@ -13,15 +13,10 @@ return {
         dependencies = {
             'b0o/schemastore.nvim',
             'lukas-reineke/lsp-format.nvim',
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
         },
         config = require 'config.lspconfig',
-    },
-
-    {
-        "williamboman/mason.nvim",
-        config = function()
-            require("mason").setup()
-        end
     },
 
     {

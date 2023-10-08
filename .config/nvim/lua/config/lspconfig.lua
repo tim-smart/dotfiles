@@ -1,4 +1,7 @@
 return function()
+    require("mason").setup()
+    require("mason-lspconfig").setup()
+
     local lsp = require 'lspconfig'
     local l = require 'utils.lsp'
     local on_attach = l.on_attach
@@ -93,10 +96,5 @@ return function()
     lsp.tsserver.setup {
         on_attach = on_attach,
         capabilities = capabilities,
-        init_options = {
-            preferences = {
-                importModuleSpecifierPreference = 'non-relative',
-            },
-        },
     }
 end
