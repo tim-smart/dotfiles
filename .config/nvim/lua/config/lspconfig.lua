@@ -65,7 +65,7 @@ return function()
     }
 
     lsp.lua_ls.setup {
-        on_attach = on_attach_formatting,
+        on_attach = on_attach,
         capabilities = capabilities,
         settings = {
             Lua = {

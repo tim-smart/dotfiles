@@ -1,16 +1,9 @@
 return {
-  'mfussenegger/nvim-dap',
-
-  {
-    'rcarriga/nvim-dap-ui',
-    config = function() require 'dapui'.setup {} end
-  },
-
   'tpope/vim-sleuth',
   {
     'tpope/vim-fugitive',
     lazy = true,
-    cmd = { 'G', 'Gr', 'Gw', 'Gdiff' }
+    cmd = { 'G', 'Gr', 'Gw', 'Gdiffsplit' }
   },
   'andweeb/presence.nvim',
 
@@ -42,5 +35,22 @@ return {
 
   { 'tpope/vim-dispatch' },
 
-  { 'github/copilot.vim' }
+  { 'github/copilot.vim' },
+
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      { "tim-smart/neotest-vitest", branch = "search-paths" }
+    },
+    config = function()
+      require("neotest").setup({
+        adapters = {
+          require("neotest-vitest")
+        }
+      })
+    end
+  }
 }
