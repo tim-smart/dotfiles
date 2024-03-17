@@ -4,9 +4,8 @@ return function()
   local luasnip = require 'luasnip'
   local mapping = require 'cmp'.mapping
 
-  require("luasnip.loaders.from_vscode").lazy_load {
-    paths = { "~/Library/Application Support/Code/User/snippets" }
-  }
+  require("luasnip.loaders.from_vscode").lazy_load()
+  require("luasnip.loaders.from_snipmate").lazy_load()
 
   require 'cmp'.setup {
     snippet = {

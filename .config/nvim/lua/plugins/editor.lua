@@ -38,6 +38,10 @@ return {
   { 'github/copilot.vim' },
 
   {
+    "nvim-treesitter/nvim-treesitter",
+  },
+
+  {
     "nvim-neotest/neotest",
     dependencies = {
       "nvim-lua/plenary.nvim",
