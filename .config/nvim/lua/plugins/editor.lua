@@ -41,20 +41,21 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
 
-  {
-    "nvim-neotest/neotest",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "antoinemadec/FixCursorHold.nvim",
-      { "tim-smart/neotest-vitest", branch = "search-paths" }
-    },
-    config = function()
-      require("neotest").setup({
-        adapters = {
-          require("neotest-vitest")
-        }
-      })
-    end
-  }
+  -- {
+  --   "nvim-neotest/neotest",
+  --   dependencies = {
+  --       "nvim-neotest/nvim-nio",
+  --       "nvim-lua/plenary.nvim",
+  --       "antoinemadec/FixCursorHold.nvim",
+  --       "nvim-treesitter/nvim-treesitter",
+  --     { "tim-smart/neotest-vitest", branch = "search-paths" }
+  --   },
+  --   config = function()
+  --     require("neotest").setup({
+  --       adapters = {
+  --         require("neotest-vitest")
+  --       }
+  --     })
+  --   end
+  -- }
 }

@@ -24,12 +24,6 @@ return {
     },
 
     {
-        'jose-elias-alvarez/null-ls.nvim',
-        dependencies = { 'nvim-lua/plenary.nvim' },
-        config = require 'config.null-ls'
-    },
-
-    {
         'hrsh7th/nvim-cmp',
         dependencies = {
             'hrsh7th/cmp-nvim-lsp',
