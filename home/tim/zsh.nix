@@ -40,18 +40,6 @@
       }
       zvm_after_init_commands+=(after_zvm)
     '';
-    plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-      {
-        name = "powerlevel10k-config";
-        src = ./zsh;
-        file = "p10k.zsh";
-      }
-    ];
     oh-my-zsh = {
       enable = true;
       plugins = [
@@ -60,6 +48,62 @@
         "git"
         "kubectl"
       ];
+    };
+  };
+
+  programs.oh-my-posh = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      blocks = [
+        {
+          type = "rprompt";
+          segments = [
+            {
+              type = "executiontime";
+              style = "plain";
+              foreground = "yellow";
+              template = " {{ .FormattedMs }}";
+              properties = {
+                threshold = 500;
+                style = "austin";
+              };
+            }
+          ];
+        }
+        {
+          alignment = "left";
+          segments = [
+            {
+              foreground = "blue";
+              properties = {
+                style = "folder";
+              };
+              style = "plain";
+              template = "<b>{{ .Path }}</b>";
+              type = "path";
+            }
+            {
+              foreground = "magenta";
+              properties = {
+                branch_icon = "";
+                fetch_status = true;
+              };
+              style = "plain";
+              template = " <white>git(</><b>{{ .HEAD }}</b><white>)</>{{ if gt .Behind 0 }} <red>{{ .Behind }}⇣</red>{{ end }}{{ if gt .Ahead 0 }} <lightGreen>{{ .Ahead }}⇡</lightGreen>{{ end }}";
+              type = "git";
+            }
+            {
+              foreground = "red";
+              style = "plain";
+              template = " {{ .Code }} ⨯";
+              type = "status";
+            }
+          ];
+          type = "prompt";
+        }
+      ];
+      final_space = true;
     };
   };
 

@@ -9,6 +9,5 @@ fi
 export GOPATH=$HOME/code/go
 
 path+=(
-    "$HOME/google-cloud-sdk/bin"
     node_modules/.bin
 )

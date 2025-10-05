@@ -119,6 +119,7 @@ automatically-unhide-macos-hidden-apps = true
     alt-a = 'exec-and-forget open "/Users/tim/Applications/Chrome Apps.localized/Actual.app"'
     alt-d = 'exec-and-forget open "/Users/tim/Applications/Chrome Apps.localized/Discord.app"'
     alt-m = 'exec-and-forget open "/Applications/Spotify.app"'
+    alt-o = 'exec-and-forget open "/Applications/OrbStack.app"'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
     alt-slash = 'layout tiles horizontal vertical'
