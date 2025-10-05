@@ -1,0 +1,9 @@
+keys:
+  - &admin_tim 723DF36CAF3A20C3A3D94979AEB26C03567C0B20
+creation_rules:
+  - path_regex: secrets/[^/]+$
+    key_groups:
+      - pgp: [*admin_tim]
+  - path_regex: .*/secrets/[^/]+$
+    key_groups:
+      - pgp: [*admin_tim]
