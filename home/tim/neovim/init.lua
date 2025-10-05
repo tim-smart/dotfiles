@@ -1,4 +1,4 @@
-require('common')
-require('neovim')
-require('keymaps')
-require('load-plugins')
+require("common")
+require("neovim")
+require("keymaps")
+require("load-plugins")

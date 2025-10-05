@@ -1,20 +1,20 @@
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 
 -- Line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = "yes"
 
 -- Indentation
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
-vim.opt.colorcolumn = '80'
+vim.opt.colorcolumn = "80"
 
 -- wildmenu
 vim.opt.wildmenu = true
-vim.opt.wildmode = 'list:longest,full'
-vim.opt.wildignore = '.gems'
+vim.opt.wildmode = "list:longest,full"
+vim.opt.wildignore = ".gems"
 
 -- modeline
 vim.opt.modeline = true
@@ -23,10 +23,10 @@ vim.opt.laststatus = 2
 
 -- For showing whitespace
 vim.opt.list = true
-vim.opt.listchars = 'tab:→ ,trail:·,eol:↩'
+vim.opt.listchars = "tab:→ ,trail:·,eol:↩"
 
 -- diff
-vim.opt.diffopt:append('vertical')
+vim.opt.diffopt:append("vertical")
 
 -- indent guides
 vim.g.indent_guides_enable_on_vim_startup = true
@@ -36,9 +36,9 @@ vim.g.indent_guides_auto_colors = true
 vim.opt.undofile = true
 vim.opt.undolevels = 1000
 vim.opt.undoreload = 10000
-vim.opt.undodir = vim.fn.expand('~/.cache/nvim/undo')
+vim.opt.undodir = vim.fn.expand("~/.cache/nvim/undo")
 
 -- grep
 if vim.fn.executable("rg") then
-  vim.opt.grepprg = 'rg --vimgrep --hidden'
+	vim.opt.grepprg = "rg --vimgrep --hidden"
 end
