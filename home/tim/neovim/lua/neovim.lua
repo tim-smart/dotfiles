@@ -2,8 +2,9 @@ vim.opt.mouse = "a"
 
 -- Line numbers
 vim.opt.number = true
+vim.opt.numberwidth = 3
 vim.opt.relativenumber = true
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "number"
 
 -- Indentation
 vim.opt.tabstop = 4
