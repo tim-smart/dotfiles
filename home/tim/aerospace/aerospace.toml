@@ -4,7 +4,7 @@
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-    'exec-and-forget /etc/profiles/per-user/tim/bin/borders active_color=0xff007aff width=5.0'
+    'exec-and-forget /etc/profiles/per-user/tim/bin/borders active_color=0xff007aff width=10.0'
 ]
 
 # Start AeroSpace at login
@@ -53,12 +53,12 @@ automatically-unhide-macos-hidden-apps = true
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-    inner.horizontal = 6
-    inner.vertical =   6
-    outer.left =       4
-    outer.bottom =     4
-    outer.top =        4
-    outer.right =      4
+    inner.horizontal = 8
+    inner.vertical =   8
+    outer.left =       8
+    outer.bottom =     8
+    outer.top =        8
+    outer.right =      8
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
