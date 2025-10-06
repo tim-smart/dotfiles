@@ -59,4 +59,10 @@ return {
 		dependencies = { "nvimtools/none-ls-extras.nvim", "nvim-lua/plenary.nvim" },
 		config = require("config.none-ls"),
 	},
+
+	{
+		"folke/lazydev.nvim",
+		ft = "lua", -- only load on lua files
+		opts = {},
+	},
 }

@@ -20,6 +20,7 @@ return function()
 
 	vim.lsp.enable({
 		"jsonls",
-		"ts_ls",
+		-- "ts_ls",
+		"tsgo",
 	})
 end
