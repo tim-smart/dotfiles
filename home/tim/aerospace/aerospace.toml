@@ -54,11 +54,11 @@ preset = 'qwerty'
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
 inner.horizontal = 10
-inner.vertical =   10
-outer.left =       8
-outer.bottom =     8
-outer.top =        8
-outer.right =      8
+inner.vertical = 10
+outer.left = [{ monitor.main = 500 }, 8]
+outer.right = [{ monitor.main = 500 }, 8]
+outer.bottom = 8
+outer.top = 8
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -209,6 +209,8 @@ esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
+period = ['exec-and-forget /Users/tim/.config/aerospace/gaps', 'mode main']
+s = ['exec-and-forget /Users/tim/.config/aerospace/gaps 500', 'mode main']
 
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
 #s = ['layout sticky tiling', 'mode main']
