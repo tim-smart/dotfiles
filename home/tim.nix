@@ -13,6 +13,7 @@
     ./tim/claude.nix
     # ./tim/bruno.nix
     ./tim/direnv.nix
+    ./tim/ghostty.nix
     ./tim/git.nix
     ./tim/gpg.nix
     ./tim/k8s.nix

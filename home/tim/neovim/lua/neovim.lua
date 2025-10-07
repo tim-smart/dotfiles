@@ -4,7 +4,7 @@ vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.numberwidth = 3
 vim.opt.relativenumber = true
-vim.opt.signcolumn = "number"
+vim.opt.signcolumn = "auto"
 
 -- Indentation
 vim.opt.tabstop = 4
