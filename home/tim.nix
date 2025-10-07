@@ -41,7 +41,6 @@
     jq
     ripgrep
     sops
-    typescript-go
   ];
 
   # XDG Base Directory Specification

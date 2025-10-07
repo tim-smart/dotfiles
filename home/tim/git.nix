@@ -8,6 +8,9 @@
     userName = "Tim Smart";
     userEmail = "hello@timsmart.co";
     extraConfig = {
+      pull = {
+        rebase = true;
+      };
       push = {
         autoSetupRemote = true;
       };
