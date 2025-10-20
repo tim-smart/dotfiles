@@ -97,10 +97,10 @@ alt-enter = '''exec-and-forget osascript -e '
     end tell'
 '''
 alt-b = '''exec-and-forget osascript -e '
-    tell application "Google Chrome"
+    tell application "Helium"
         if it is running
-            tell application "System Events" to tell process "Chrome"
-                click menu item "New Window" of menu "File" of menu bar 1
+            tell application "System Events" to tell process "Helium"
+                click menu item "New window" of menu "File" of menu bar 1
             end tell
         else
             activate
@@ -115,8 +115,8 @@ alt-f = '''exec-and-forget osascript -e '
         end tell
     end tell'
 '''
-alt-a = 'exec-and-forget open "~/Applications/Chrome Apps.localized/Actual.app"'
-alt-d = 'exec-and-forget open "~/Applications/Chrome Apps.localized/Discord.app"'
+alt-a = 'exec-and-forget open "/Users/tim/Applications/Helium Apps.localized/Actual.app"'
+alt-d = 'exec-and-forget open "/Users/tim/Applications/Helium Apps.localized/Discord.app"'
 alt-m = 'exec-and-forget open "/Applications/Spotify.app"'
 alt-o = 'exec-and-forget open "/Applications/OrbStack.app"'
 

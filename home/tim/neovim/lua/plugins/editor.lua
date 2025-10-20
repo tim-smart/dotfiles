@@ -44,7 +44,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			"antoinemadec/FixCursorHold.nvim",
 			"nvim-treesitter/nvim-treesitter",
-			{ "tim-smart/neotest-vitest", branch = "root", dev = true },
+			{ "tim-smart/neotest-vitest", branch = "root" },
 		},
 		config = function()
 			require("neotest").setup({

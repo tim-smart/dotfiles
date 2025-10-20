@@ -11,7 +11,6 @@
     ./tim/alacritty.nix
     ./tim/bat.nix
     ./tim/claude.nix
-    # ./tim/bruno.nix
     ./tim/direnv.nix
     ./tim/ghostty.nix
     ./tim/git.nix
@@ -22,6 +21,7 @@
     ./tim/pass.nix
     ./tim/syncthing.nix
     ./tim/tmux.nix
+    ./tim/yaak.nix
     ./tim/zsh.nix
   ];
 

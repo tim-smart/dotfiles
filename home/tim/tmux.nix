@@ -27,8 +27,8 @@
 
       bind LEFT resize-pane -L 20
       bind RIGHT resize-pane -R 20
-      bind UP resize-pane -U 20
-      bind DOWN resize-pane -D 20
+      bind UP resize-pane -U 5
+      bind DOWN resize-pane -D 5
     '';
   };
 }
