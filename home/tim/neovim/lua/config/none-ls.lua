@@ -20,6 +20,7 @@ return function()
 		on_attach = require("lsp-format").on_attach,
 		sources = {
 			null_ls.builtins.formatting.alejandra,
+			null_ls.builtins.formatting.biome,
 			null_ls.builtins.formatting.prettier.with({
 				only_local = "node_modules/.bin",
 				extra_filetypes = { "ruby" },
