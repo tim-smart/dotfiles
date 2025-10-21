@@ -19,6 +19,7 @@ return function()
 	})
 
 	vim.lsp.enable({
+		"biome",
 		"jsonls",
 		"ts_ls",
 	})
