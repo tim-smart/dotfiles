@@ -5,9 +5,17 @@
 }: {
   programs.git = {
     enable = true;
-    userName = "Tim Smart";
-    userEmail = "hello@timsmart.co";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Tim Smart";
+        email = "hello@timsmart.co";
+      };
+      commit = {
+        gpgsign = true;
+      };
+      init = {
+        defaultBranch = "master";
+      };
       pull = {
         rebase = true;
       };
@@ -17,5 +25,5 @@
     };
   };
 
-  home.packages = with pkgs; [gitAndTools.gh];
+  home.packages = with pkgs; [gh];
 }

@@ -8,9 +8,8 @@
     vimAlias = true;
   };
 
-  # for spectre
   home.packages = with pkgs; [
-    # gnused
+    nodejs
   ];
 
   xdg.configFile."nvim/init.lua" = {

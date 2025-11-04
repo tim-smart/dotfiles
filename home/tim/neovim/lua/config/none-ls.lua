@@ -15,12 +15,20 @@ return function()
 			".prettierrc.json",
 		})
 	end
+	local ifBiome = function(utils)
+		return utils.root_has_file({
+			"biome.json",
+			"biome.jsonc",
+		})
+	end
 
 	null_ls.setup({
 		on_attach = require("lsp-format").on_attach,
 		sources = {
 			null_ls.builtins.formatting.alejandra,
-			null_ls.builtins.formatting.biome,
+			null_ls.builtins.formatting.biome.with({
+				condition = ifBiome,
+			}),
 			null_ls.builtins.formatting.prettier.with({
 				only_local = "node_modules/.bin",
 				extra_filetypes = { "ruby" },

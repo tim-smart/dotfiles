@@ -2,7 +2,34 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  aerospace-swipe = pkgs.stdenv.mkDerivation {
+    name = "aerospace-swipe";
+    src = pkgs.fetchFromGitHub {
+      owner = "acsandmann";
+      repo = "aerospace-swipe";
+      rev = "main";
+      hash = "sha256-Qfj6+qZ/SQND+LMOSdUiYGDXFxU6+xmXxkYerxsdkcE=";
+    };
+
+    NIX_ENFORCE_NO_NATIVE = false;
+    preferLocalBuild = true;
+    allowSubstitutes = false;
+
+    buildInputs = with pkgs; [
+      gcc
+      apple-sdk_15
+      (darwinMinVersionHook "15")
+    ];
+    buildPhase = ''
+      make bundle
+    '';
+    installPhase = ''
+      mkdir -p $out/bin
+      cp swipe $out/bin/swipe
+    '';
+  };
+in {
   home.packages = with pkgs; [
     aerospace
     jankyborders

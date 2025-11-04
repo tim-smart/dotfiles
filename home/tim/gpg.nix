@@ -6,7 +6,6 @@ in {
   };
 
   home.file.".gnupg/gpg-agent.conf".text = ''
-    pinentry-program ${pinentry-touchid}/bin/pinentry-touchid
     default-cache-ttl 3600
   '';
 }
