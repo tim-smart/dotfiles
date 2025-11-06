@@ -55,8 +55,8 @@ preset = 'qwerty'
 [gaps]
 inner.horizontal = 10
 inner.vertical = 10
-outer.left = 8
-outer.right = 8
+outer.left = [{ monitor.main = 500 }, 8]
+outer.right = [{ monitor.main = 500 }, 8]
 outer.bottom = 8
 outer.top = 8
 
