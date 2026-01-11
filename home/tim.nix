@@ -9,6 +9,7 @@
     ./tim/aerospace.nix
     ./tim/age.nix
     ./tim/alacritty.nix
+    ./tim/android.nix
     ./tim/bat.nix
     ./tim/claude.nix
     ./tim/direnv.nix
@@ -39,6 +40,7 @@
 
   home.packages = with pkgs; [
     alejandra
+    devenv
     jq
     ripgrep
     sops

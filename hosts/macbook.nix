@@ -79,6 +79,7 @@ in {
   system.defaults = {
     NSGlobalDomain = {
       AppleInterfaceStyleSwitchesAutomatically = true;
+      KeyRepeat = 120;
       NSAutomaticWindowAnimationsEnabled = false;
     };
 

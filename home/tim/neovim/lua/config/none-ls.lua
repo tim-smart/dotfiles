@@ -35,15 +35,15 @@ return function()
 				condition = ifPrettier,
 			}),
 			null_ls.builtins.formatting.stylua,
-			require("none-ls.diagnostics.eslint_d").with({
-				condition = ifEslint,
-			}),
-			require("none-ls.formatting.eslint_d").with({
-				condition = ifEslint,
-			}),
-			require("none-ls.code_actions.eslint_d").with({
-				condition = ifEslint,
-			}),
+			-- require("none-ls.diagnostics.eslint_d").with({
+			-- 	condition = ifEslint,
+			-- }),
+			-- require("none-ls.formatting.eslint_d").with({
+			-- 	condition = ifEslint,
+			-- }),
+			-- require("none-ls.code_actions.eslint_d").with({
+			-- 	condition = ifEslint,
+			-- }),
 		},
 	})
 end

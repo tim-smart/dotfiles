@@ -12,10 +12,6 @@
 
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-
-    omarchy.url = "github:henrysipp/omarchy-nix";
-    omarchy.inputs.nixpkgs.follows = "nixpkgs";
-    omarchy.inputs.home-manager.follows = "home-manager";
   };
 
   outputs = inputs @ {
@@ -36,14 +32,6 @@
         home-manager.darwinModules.home-manager
         ./modules/darwin/primary-user.nix
         ./hosts/macbook.nix
-      ];
-    };
-    darwinConfigurations.omanix = darwin.lib.darwinSystem {
-      system = "aarch64-linux";
-      modules = [
-        defaultModuleArgs
-        home-manager.nixosModules.home-manager
-        ./hosts/omanix.nix
       ];
     };
   };
