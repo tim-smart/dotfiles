@@ -11,15 +11,16 @@
     ./tim/alacritty.nix
     ./tim/android.nix
     ./tim/bat.nix
-    ./tim/claude.nix
     ./tim/direnv.nix
     ./tim/ghostty.nix
     ./tim/git.nix
     ./tim/gpg.nix
     ./tim/k8s.nix
+    ./tim/linear.nix
     ./tim/neovim.nix
     ./tim/netrc.nix
     ./tim/pass.nix
+    ./tim/sandbox.nix
     ./tim/syncthing.nix
     ./tim/tmux.nix
     ./tim/yaak.nix

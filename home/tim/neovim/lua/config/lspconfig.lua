@@ -5,9 +5,11 @@ return function()
 			"ts_ls",
 		},
 		automatic_enable = {
-			exclude = { "ts_ls", "elixirls", "jsonls", "solargraph" },
+			exclude = { "elixirls", "jsonls", "solargraph" },
 		},
 	})
+
+	local util = require("lspconfig.util")
 
 	local base_on_attach = vim.lsp.config.eslint.on_attach
 	vim.lsp.config("eslint", {
@@ -52,6 +54,19 @@ return function()
 				validate = { enable = true },
 			},
 		},
+	})
+
+	vim.lsp.config("oxlint", {
+		cmd = { "oxlint", "--lsp" },
+	})
+
+	vim.lsp.config("ts_ls", {
+		root_dir = function(bufnr, on_dir)
+			local root_markers = { "package-lock.json", "yarn.lock", "pnpm-lock.yaml", "bun.lockb", "bun.lock" }
+			root_markers = vim.list_extend(root_markers, { ".git" })
+			local project_root = vim.fs.root(bufnr, root_markers)
+			on_dir(project_root or vim.fn.getcwd())
+		end,
 	})
 
 	vim.lsp.enable({
