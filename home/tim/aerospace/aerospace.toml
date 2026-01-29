@@ -117,6 +117,7 @@ alt-f = '''exec-and-forget osascript -e '
 '''
 alt-a = 'exec-and-forget open "/Users/tim/Applications/Helium Apps.localized/Actual.app"'
 alt-d = 'exec-and-forget open "/Users/tim/Applications/Helium Apps.localized/Discord.app"'
+alt-i = 'exec-and-forget open "/Users/tim/Applications/Helium Apps.localized/Linear.app"'
 alt-m = 'exec-and-forget open "/Applications/Spotify.app"'
 alt-o = 'exec-and-forget open "/Applications/OrbStack.app"'
 

@@ -24,7 +24,9 @@
       opencodedata="$datadir/opencode"
       opencode_state="$opencodedata/state"
       opencode_share="$opencodedata/share"
+      opencode_config="$opencodedata/opencode.json"
       mkdir -p "$opencode_state" "$opencode_share"
+      touch "$opencode_config"
 
       # codex data
       codexdata="$datadir/codex"
@@ -37,6 +39,7 @@
         -v sandbox-nix-store:/nix \
         -v "$opencode_state":/root/.local/state/opencode \
         -v "$opencode_share":/root/.local/share/opencode \
+        -v "$opencode_config":/root/.config/opencode/opencode.json \
         -v "$codexdata":/root/.codex \
         -v "$ghdata":/root/.config/gh \
         -v "$pnpmstore":/root/.local/share/pnpm/store/v10 \

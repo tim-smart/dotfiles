@@ -28,9 +28,12 @@ else
   done
 fi
 
-export PATH="$(npm config get prefix -g)/bin:$PATH"
+npm="$(nix eval nixpkgs#nodejs_24 --raw)/bin/npm"
 
-npm install -g npm@latest lalph@latest @anthropic-ai/claude-code@latest opencode-ai@latest @openai/codex@latest
+export PATH="${PATH}:/nix/var/nix/profiles/default/bin"
+export PATH="$($npm config get prefix -g)/bin:$PATH"
+
+$npm install -g npm@latest lalph@latest @openai/codex@latest opencode-ai@dev
 eval "$(direnv hook bash)"
 
 if [ ! -f ~/.local/share/opencode/auth.json ]; then
