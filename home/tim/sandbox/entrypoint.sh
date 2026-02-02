@@ -33,7 +33,7 @@ npm="$(nix eval nixpkgs#nodejs_24 --raw)/bin/npm"
 export PATH="${PATH}:/nix/var/nix/profiles/default/bin"
 export PATH="$($npm config get prefix -g)/bin:$PATH"
 
-$npm install -g npm@latest lalph@latest @openai/codex@latest opencode-ai@dev
+$npm install -g lalph@latest @openai/codex@latest opencode-ai@dev
 eval "$(direnv hook bash)"
 
 if [ ! -f ~/.local/share/opencode/auth.json ]; then
