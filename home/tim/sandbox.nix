@@ -7,6 +7,7 @@
     sandbox() {
       args=("$@")
 
+      basename=''${PWD##*/}
       datadir=.lalph/sandbox
 
       mkdir -p "$datadir"
@@ -35,6 +36,7 @@
       docker volume create sandbox-nix-store
 
       docker run --rm -it \
+        --name "sandbox-$basename" \
         -v "$PWD":/app \
         -v sandbox-nix-store:/nix \
         -v "$opencode_state":/root/.local/state/opencode \

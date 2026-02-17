@@ -39,9 +39,6 @@ eval "$(direnv hook bash)"
 if [ ! -f ~/.local/share/opencode/auth.json ]; then
   opencode auth login
 fi
-if [ ! -f ~/.codex/auth.json ]; then
-  codex login --device-auth
-fi
 
 if [ ! -f ~/.config/gh/hosts.yml ]; then
   gh auth login

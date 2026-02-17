@@ -39,6 +39,8 @@
         fi
       }
       zvm_after_init_commands+=(after_zvm)
+
+      alias l='lalph'
     '';
     oh-my-zsh = {
       enable = true;
