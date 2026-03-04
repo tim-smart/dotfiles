@@ -64,6 +64,10 @@ return {
 		config = function()
 			require("spectre").setup({
 				default = {
+					find = {
+						cmd = "rg",
+						options = {},
+					},
 					replace = {
 						cmd = "oxi",
 					},
@@ -74,4 +78,22 @@ return {
 
 	-- { "justinmk/vim-sneak" },
 	{ "unblevable/quick-scope" },
+
+	{
+		"sudo-tee/opencode.nvim",
+		config = function()
+			require("opencode").setup({})
+		end,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			{
+				"MeanderingProgrammer/render-markdown.nvim",
+				opts = {
+					anti_conceal = { enabled = false },
+					file_types = { "markdown", "opencode_output" },
+				},
+				ft = { "markdown", "Avante", "copilot-chat", "opencode_output" },
+			},
+		},
+	},
 }

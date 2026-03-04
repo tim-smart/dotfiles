@@ -7,6 +7,8 @@ after-startup-command = [
     'exec-and-forget /etc/profiles/per-user/tim/bin/borders active_color=0xff007aff width=10.0'
 ]
 
+exec-on-workspace-change = ['/bin/bash', '-c', '~/.config/aerospace/gaps']
+
 # Start AeroSpace at login
 start-at-login = true
 
@@ -55,8 +57,8 @@ preset = 'qwerty'
 [gaps]
 inner.horizontal = 10
 inner.vertical = 10
-outer.left = 8
-outer.right = 8
+outer.left = [{ monitor."main" = 435 }, 8]
+outer.right = [{ monitor."main" = 435 }, 8]
 outer.bottom = 8
 outer.top = 8
 
@@ -190,8 +192,7 @@ esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
-period = ['exec-and-forget ~/.config/aerospace/gaps', 'mode main']
-s = ['exec-and-forget ~/.config/aerospace/gaps 500', 'mode main']
+period = ['exec-and-forget ~/.config/aerospace/gaps toggle', 'mode main']
 
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
 #s = ['layout sticky tiling', 'mode main']
