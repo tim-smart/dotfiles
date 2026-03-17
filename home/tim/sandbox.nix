@@ -47,6 +47,7 @@
         -v "$pnpmstore":/root/.local/share/pnpm/store/v10 \
         -e GIT_AUTHOR_NAME="$git_author_name" \
         -e GIT_AUTHOR_EMAIL="$git_author_email" \
+        -e LALPH_OPENAI_API_KEY \
         "''${args[@]}" \
         "$(docker build -q /Volumes/Code/dotfiles -f /Volumes/Code/dotfiles/home/tim/sandbox/Dockerfile)"
     }

@@ -19,6 +19,7 @@
     ./tim/linear.nix
     ./tim/neovim.nix
     ./tim/netrc.nix
+    ./tim/ollama.nix
     ./tim/pass.nix
     ./tim/sandbox.nix
     ./tim/syncthing.nix

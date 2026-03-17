@@ -21,6 +21,11 @@ return function()
 			"biome.jsonc",
 		})
 	end
+	local ifOxfmt = function(utils)
+		return utils.root_has_file({
+			".oxfmtrc.json",
+		})
+	end
 
 	null_ls.setup({
 		on_attach = require("lsp-format").on_attach,
