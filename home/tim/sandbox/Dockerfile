@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-RUN apt update -y && apt install curl systemd -y
+RUN apt update -y && apt install curl systemd build-essential -y
 
 ENV PATH="${PATH}:/nix/var/nix/profiles/default/bin"
 ENV EDITOR=nvim

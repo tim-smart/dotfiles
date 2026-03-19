@@ -30,6 +30,7 @@ fi
 
 npm="$(nix eval nixpkgs#nodejs_24 --raw)/bin/npm"
 
+export CXXFLAGS="-std=c++20"
 export PATH="${PATH}:/nix/var/nix/profiles/default/bin"
 export PATH="$($npm config get prefix -g)/bin:$PATH"
 
