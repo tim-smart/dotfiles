@@ -38,6 +38,7 @@
       docker run --rm -it \
         --name "sandbox-$basename" \
         -v "$PWD":/app \
+        -v /var/run/docker.sock:/var/run/docker.sock \
         -v sandbox-nix-store:/nix \
         -v "$opencode_state":/root/.local/state/opencode \
         -v "$opencode_share":/root/.local/share/opencode \

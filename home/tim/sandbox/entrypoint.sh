@@ -7,6 +7,7 @@ if ! command -v nix >/dev/null 2>&1; then
     --no-confirm
 
   nix profile add \
+    nixpkgs#docker \
     nixpkgs#direnv \
     nixpkgs#git \
     nixpkgs#neovim \

@@ -40,7 +40,11 @@
       }
       zvm_after_init_commands+=(after_zvm)
 
+      export PATH="$PATH:$HOME/.vite-plus/bin"
+
       alias l='lalph'
+      alias c='clanka -p openai -m gpt-5.3-codex/high'
+      alias cs='clanka -p openai -m gpt-5.3-codex/high -s .lalph/shared'
     '';
     oh-my-zsh = {
       enable = true;
