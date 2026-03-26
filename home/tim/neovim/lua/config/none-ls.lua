@@ -1,4 +1,39 @@
 return function()
+	local h = require("null-ls.helpers")
+	local methods = require("null-ls.methods")
+	local u = require("null-ls.utils")
+
+	local FORMATTING = methods.internal.FORMATTING
+
+	local vp = h.make_builtin({
+		name = "vite+",
+		method = FORMATTING,
+		filetypes = {
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+			"vue",
+			"svelte",
+			"astro",
+			"html",
+			"css",
+			"scss",
+			"less",
+		},
+		factory = h.formatter_factory,
+		generator_opts = {
+			command = "vp",
+			args = { "fmt", "$FILENAME" },
+			to_temp_file = true,
+			from_temp_file = true,
+			timeout = 10000,
+			cwd = h.cache.by_bufnr(function(params)
+				return u.root_pattern(".oxfmtrc.json")(params.bufname)
+			end),
+		},
+	})
+
 	local null_ls = require("null-ls")
 	local ifEslint = function(utils)
 		return utils.root_has_file({
@@ -21,11 +56,6 @@ return function()
 			"biome.jsonc",
 		})
 	end
-	local ifOxfmt = function(utils)
-		return utils.root_has_file({
-			".oxfmtrc.json",
-		})
-	end
 
 	null_ls.setup({
 		on_attach = require("lsp-format").on_attach,
@@ -34,21 +64,18 @@ return function()
 			null_ls.builtins.formatting.biome.with({
 				condition = ifBiome,
 			}),
+			require("none-ls.formatting.oxfmt").with({
+				only_local = "node_modules/.bin",
+			}),
+			vp.with({
+				only_local = "node_modules/.bin",
+			}),
 			null_ls.builtins.formatting.prettier.with({
 				only_local = "node_modules/.bin",
 				extra_filetypes = { "ruby" },
 				condition = ifPrettier,
 			}),
 			null_ls.builtins.formatting.stylua,
-			-- require("none-ls.diagnostics.eslint_d").with({
-			-- 	condition = ifEslint,
-			-- }),
-			-- require("none-ls.formatting.eslint_d").with({
-			-- 	condition = ifEslint,
-			-- }),
-			-- require("none-ls.code_actions.eslint_d").with({
-			-- 	condition = ifEslint,
-			-- }),
 		},
 	})
 end
